@@ -14,7 +14,6 @@ function App() {
     try {
       const data = await getWeatherData(cityName);
       setWeatherData(data);
-      console.log(data);
     } catch (error) {
       console.log(error.message);
     }
@@ -41,8 +40,7 @@ function App() {
           />
           {console.log(cityName)}
           <button type="button" onClick={() => getData()} className="button">
-            {" "}
-            <BsSearch className="button2" />{" "}
+            <BsSearch className="button2" />
           </button>
           {weatherData !== null ? (
             <div>
@@ -55,16 +53,15 @@ function App() {
               </div>
               <div>
                 <h3>
-                  {" "}
                   <i></i>
                   {weatherData.name} | {weatherData.sys.country}
                 </h3>
               </div>
               <div>
                 <h6>
-                  Min:{" "}
+                  Min:
                   {parseFloat(weatherData.main.temp_min - 273.15).toFixed(1)}
-                  &deg;C || Max:{" "}
+                  &deg;C || Max:
                   {parseFloat(weatherData.main.temp_max - 273.15).toFixed(1)}
                   &deg;C || Humidity: {weatherData.main.humidity}%
                 </h6>
